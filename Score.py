@@ -13,48 +13,48 @@ def score(board):
                     elif board[i - 3][j] + board[i - 2][j] + board[i - 1][j] == 1:
                         ai_score += 5
                     elif board[i - 3][j] + board[i - 2][j] + board[i - 1][j] == 2:
-                        ai_score += 100
+                        ai_score += 130
                 if i+3 < 6:
                     if board[i+3][j]+board[i+2][j]+board[i+1][j] == 0:
                         ai_score += 2
                     elif board[i + 3][j] + board[i + 2][j] + board[i + 1][j] == 1:
                         ai_score += 5
                     elif board[i + 3][j] + board[i + 2][j] + board[i + 1][j] == 2:
-                        ai_score += 100
+                        ai_score += 130
                 if j-3 >= 0:
                     if board[i][j-3]+board[i][j-2]+board[i][j-1] == 0:
                         ai_score += 2
                     elif board[i][j-3]+board[i][j-2]+board[i][j-1] == 1:
                         ai_score += 5
                     elif board[i][j-3]+board[i][j-2]+board[i][j-1] == 2:
-                        ai_score += 100
+                        ai_score += 130
                 if j+3 < 7:
                     if board[i][j+3]+board[i][j+2]+board[i][j+3] == 0:
                         ai_score += 2
                     elif board[i][j+3]+board[i][j+2]+board[i][j+3] == 1:
                         ai_score += 5
                     elif board[i][j+3]+board[i][j+2]+board[i][j+3] == 2:
-                        ai_score += 100
+                        ai_score += 130
                 if i-3 >= 0 and j-3 >= 0:
                     if board[i-3][j-3]+board[i-2][j-2]+board[i-1][j-1] == 1:
                         ai_score += 5
                     elif board[i-3][j-3]+board[i-2][j-2]+board[i-1][j-1] == 2:
-                        ai_score += 100
+                        ai_score += 130
                 if i-3 >= 0 and j+3 < 7:
                     if board[i-3][j+3]+board[i-2][j+2]+board[i-1][j+1] == 1:
                         ai_score += 5
                     elif board[i-3][j+3]+board[i-2][j+2]+board[i-1][j+1] == 2:
-                        ai_score += 100
+                        ai_score += 130
                 if i+3 < 6 and j+3 < 7:
                     if board[i+3][j+3]+board[i+2][j+2]+board[i+1][j+1] == 1:
                         ai_score += 5
                     elif board[i+3][j+3]+board[i+2][j+2]+board[i+1][j+1] == 2:
-                        ai_score += 100
+                        ai_score += 130
                 if i+3 < 6 and j-3 >= 0:
                     if board[i+3][j-3]+board[i+2][j-2]+board[i+1][j-1] == 1:
                         ai_score += 5
                     elif board[i+3][j-3]+board[i+2][j-2]+board[i+1][j-1] == 2:
-                        ai_score += 100
+                        ai_score += 130
             elif board[i][j] == 4:
                 if i - 3 >= 0:
                     if board[i - 3][j] + board[i - 2][j] + board[i - 1][j] == 0:
