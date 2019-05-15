@@ -13,7 +13,7 @@ def make_move(col, board, p):
 
 
 def tree(board):
-    root=AnyNode(board,score=0)
+    root=AnyNode(br=board,score=0)
     lvl1 = []
     lvl2 = []
     lvl3 = []
@@ -24,14 +24,14 @@ def tree(board):
         flag, new_board = make_move(j, board, 1)
         if flag:
             lvl1.append(new_board)
-            nodes1.append(AnyNode(new_board,parent=root,score=0))
+            nodes1.append(AnyNode(br=new_board,parent=root,score=0))
     k=0
     for b in lvl1:
         for j in range(0, 7):
             flag, new_board = make_move(j, b, 4)
             if flag:
                 lvl2.append(new_board)
-                nodes2.append(AnyNode(new_board,parent=nodes1[k],score=0))
+                nodes2.append(AnyNode(br=new_board,parent=nodes1[k],score=0))
         k+=1        
     kk=0
     for b in lvl2:
@@ -39,6 +39,6 @@ def tree(board):
             flag, new_board = make_move(j, b, 1)
             if flag:
                 lvl3.append(new_board)
-                nodes3.append(AnyNode(new_board,parent=nodes2[b],score=score(new_board)))
+                nodes3.append(AnyNode(br=new_board,parent=nodes2[b],score=score(new_board)))
         kk+=1        
     return root
