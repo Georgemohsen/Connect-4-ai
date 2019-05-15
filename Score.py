@@ -4,8 +4,8 @@ import numpy as np
 def score(board):
     ai_score = 0
     player_score = 0
-    for i in range(0, 7):
-        for j in range(0, 6):
+    for i in range(0, 6):
+        for j in range(0, 7):
             if board[i][j] == 1:
                 if i-3 >= 0:
                     if board[i-3][j]+board[i-2][j]+board[i-1][j] == 0:
