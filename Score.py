@@ -1,16 +1,9 @@
 import numpy as np
 
 
-def score(player, ai):
-    board = np.zeros((6, 7), dtype=int)
+def score(board):
     ai_score = 0
     player_score = 0
-    for i in range(0, 6):
-        for j in range(0, 7):
-            if player[i][j] == 1:
-                board[i][j] = 4
-            elif ai[i][j] == 1:
-                board[i][j] == 1
     for i in range(0, 7):
         for j in range(0, 6):
             if board[i][j] == 1:
