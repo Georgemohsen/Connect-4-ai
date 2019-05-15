@@ -1,4 +1,7 @@
 from anytree import RenderTree, AnyNode
+from Score import score
+
+
 def make_move(col, board, p):
     if board[5][col] == 0:
         for i in range(0, 6):
@@ -36,6 +39,6 @@ def tree(board):
             flag, new_board = make_move(j, b, 1)
             if flag:
                 lvl3.append(new_board)
-                nodes3.append(AnyNode(new_board,parent=nodes2[b],score=0))
+                nodes3.append(AnyNode(new_board,parent=nodes2[b],score=score(new_board)))
         kk+=1        
-    return lvl1, lvl2, lvl3
+    return root
