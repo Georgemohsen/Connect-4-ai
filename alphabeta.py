@@ -1,7 +1,7 @@
 from anytree import Node, RenderTree, AnyNode
-flag=AnyNode
+play=AnyNode
 def alphabeta(position,level,isMin,alpha,beta):
-    global flag
+    global play
     if position.is_leaf :
         return position.score
     if isMin:
@@ -24,7 +24,7 @@ def alphabeta(position,level,isMin,alpha,beta):
             if alpha < ScoreToPlay:
                 alpha = ScoreToPlay
                 if level==0 :
-                    flag=y
+                    play=y
 
             if beta <= alpha:
                 break
@@ -52,7 +52,7 @@ if __name__ =="__main__" :
     elmafrood=alphabeta(udo,0,False,-999999,999999)
     print(RenderTree(udo))
     print(elmafrood)
-    print(flag)
+    print(play)
 
 
 
