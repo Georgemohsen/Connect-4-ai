@@ -28,7 +28,7 @@ def make_move(col, board, p):
 
 
 
-def tree(board):
+def tree(board, turn):
 
     root=AnyNode(br=board,score=score(board))
 
@@ -54,7 +54,10 @@ def tree(board):
 
     for j in range(0,7):
 
-        flag, new_board = make_move(j, board, 1)
+        if turn == 1:
+            flag, new_board = make_move(j, board, 4)
+        else:
+            flag, new_board = make_move(j, board, 1)
 
         if flag:
 
@@ -70,8 +73,11 @@ def tree(board):
             k+=1
         else:
             for j in range(0, 7):
-
-                flag, new_board = make_move(j, b, 4)
+                
+                if turn == 1:
+                    flag, new_board = make_move(j, b, 1)
+                else:
+                    flag, new_board = make_move(j, b, 4)    
 
                 if flag:
 
@@ -90,7 +96,10 @@ def tree(board):
         else:
             for j in range(0, 7):
 
-                flag, new_board = make_move(j, b, 1)
+                if turn == 1:
+                    flag, new_board = make_move(j, b, 4)
+                else:
+                    flag, new_board = make_move(j, b, 1)    
 
                 if flag:
 
@@ -106,8 +115,11 @@ def tree(board):
             kkk += 1
         else:
             for j in range(0, 7):
-
-                flag, new_board = make_move(j, b, 1)
+                
+                if turn ==1 :
+                    flag, new_board = make_move(j, b, 1)
+                else:
+                    flag, new_board = make_move(j, b, 4)    
 
                 if flag:
                     lvl4.append(new_board)
@@ -123,8 +135,11 @@ def tree(board):
             kkkk += 1
         else:
             for j in range(0, 7):
-
-                flag, new_board = make_move(j, b, 1)
+                
+                if turn ==1:
+                    flag, new_board = make_move(j, b, 4)
+                else:
+                    flag, new_board = make_move(j, b, 1)    
 
                 if flag:
                     lvl5.append(new_board)
