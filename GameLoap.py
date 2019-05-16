@@ -1,5 +1,5 @@
 from Tree import tree, make_move
-from Score import score, connect4
+from Score import score, connect4, Connect4
 from anytree import RenderTree, AnyNode
 import numpy as np
 
@@ -66,6 +66,12 @@ def game():
             root = tree(board)
             _ = alphabeta(root, 0,False,-999999,999999)
             draw(np.flipud(play.br))
+            value = connect4(np.flipud(play.br))
+            if value == 1:
+                print("You Lose")
+                break
+            elif value == 2:
+                print("You Win")      
         i=i+1
 
 if __name__ == "__main__":
