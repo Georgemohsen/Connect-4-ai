@@ -1,5 +1,5 @@
 from Tree import tree, make_move
-from Score import score
+from Score import score, connect4
 from anytree import RenderTree, AnyNode
 import numpy as np
 
@@ -53,7 +53,7 @@ def game():
     draw(board)
     i=0
     while True:
-        col = input("Enter Col: ")
+        col = input("Enter Col: ")    
         if i ==0:
             _, board =make_move(int(col), board, 4)
             draw(np.flipud(board))
