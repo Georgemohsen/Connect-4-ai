@@ -1,5 +1,5 @@
 from Tree import tree, make_move
-from Score import score, connect4, Connect4
+from Score import *
 from anytree import RenderTree, AnyNode
 import numpy as np
 
@@ -46,33 +46,60 @@ def draw(board):
                 print("|0", end='')    
             else:
                 print("| ", end='')  
-        print("|")       
+        print("|")
+
+def extendArr(arr):
+    new_arr = np.insert(arr, 0, np.array((0, 0, 0, 0, 0, 0, 0)), 0)
+    return new_arr
 
 def game():
     board = np.zeros((6,7), dtype=int)
+    ai = np.zeros((6,7), dtype=int)
+    player = np.zeros((6,7), dtype=int)
     draw(board)
     i=0
+    j=0
+    turn = input("0 to play first, 1 to play second ")
     while True:
-        col = input("Enter Col: ")    
-        if i ==0:
-            _, board =make_move(int(col), board, 4)
-            draw(np.flipud(board))
-            root = tree(board)
-            _ = alphabeta(root, 0,False,-999999,999999)
-            draw(np.flipud(play.br))
+        order = int(turn)
+        if order == 0:
+            col = input("Enter Col: ")    
+            if i == 0:
+                _, board =make_move(int(col), board, 4)
+                draw(np.flipud(board))
+                root = tree(board,turn)
+                _ = alphabeta(root, 0,False,-999999,999999)
+                draw(np.flipud(play.br))
+            else:
+                _, board =make_move(int(col), play.br, 4)
+                draw(np.flipud(board))
+                root = tree(board,turn)
+                _ = alphabeta(root, 0,False,-999999,999999)
+                draw(np.flipud(play.br))
+            i=i+1
         else:
-            _, board =make_move(int(col), play.br, 4)
-            draw(np.flipud(board))
-            root = tree(board)
-            _ = alphabeta(root, 0,False,-999999,999999)
-            draw(np.flipud(play.br))
-            value = connect4(np.flipud(play.br))
-            if value == 1:
-                print("You Lose")
-                break
-            elif value == 2:
-                print("You Win")      
-        i=i+1
-
+            if i == 0:
+                _, board =make_move(3, board, 1)
+                draw(np.flipud(board))
+            else:                
+                col = input("Enter Col:: ")
+                if j ==0 :
+                    _, board =make_move(int(col), board, 4)
+                    draw(np.flipud(board))   
+                    root = tree(board,turn)
+                    _ = alphabeta(root, 0,False,-999999,999999)
+                    draw(np.flipud(play.br))   
+                else:
+                    _, board =make_move(int(col), play.br, 4)
+                    draw(np.flipud(board))   
+                    root = tree(board,turn)
+                    _ = alphabeta(root, 0,False,-999999,999999)
+                    draw(np.flipud(play.br))
+                    value = connect4(np.flipud(play.br))
+                    if value == 1:
+                        print("You Lose")
+                        break              
+                j=j+1            
+            i=i+1
 if __name__ == "__main__":
     game()
