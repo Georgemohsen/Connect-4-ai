@@ -3,11 +3,12 @@ from Score import score
 
 
 def make_move(col, board, p):
+    temp_board = copy.deepcopy(board)
     if board[5][col] == 0:
         for i in range(0, 6):
             if board[i][col] == 0:
-                board[i][col] = p
-                return True, board
+                temp_board[i][col] = p
+                return True, temp_board
     else:
         return False, board
 
