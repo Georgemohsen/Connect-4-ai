@@ -109,8 +109,8 @@ def score(board):
 
 def connect4(board): #returns 1 if ai wins , 2 if player wins, 0 if no win
     
-    for i in range(0, 7):
-        for j in range(0, 6):
+    for i in range(0, 6):
+        for j in range(0, 7):
             if board[i][j] == 1:
                 if i-3 >= 0:
                     if board[i-3][j]+board[i-2][j]+board[i-1][j] == 3:
