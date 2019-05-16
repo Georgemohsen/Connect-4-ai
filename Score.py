@@ -107,14 +107,8 @@ def score(board):
     return ai_score - player_score
 
 
-def connect4(player, ai): #returns 1 if ai wins , 2 if player wins, 0 if no win
-    board = np.zeros((6, 7), dtype=int)
-    for i in range(0, 6):
-        for j in range(0, 7):
-            if player[i][j] == 1:
-                board[i][j] = 4
-            elif ai[i][j] == 1:
-                board[i][j] == 1
+def connect4(board): #returns 1 if ai wins , 2 if player wins, 0 if no win
+    
     for i in range(0, 7):
         for j in range(0, 6):
             if board[i][j] == 1:
